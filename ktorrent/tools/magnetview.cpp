@@ -109,7 +109,8 @@ namespace kt
     void MagnetView::removeMagnetDownload()
     {
         QModelIndexList idx_list = view->selectionModel()->selectedRows();
-        mman->removeMagnets(idx_list.front().row(), idx_list.size());
+        if (!idx_list.isEmpty())
+            mman->removeMagnets(idx_list.front().row(), idx_list.size());
     }
 
     void MagnetView::startMagnetDownload()
